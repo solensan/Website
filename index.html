@@ -283,7 +283,7 @@
     const sheet = document.createElement('div');
     sheet.className = 'sheet';
     sheet.innerHTML = srcs.map((src, k) =>
-      `<button aria-label="Image ${k + 1}"><span class="th${smalls.includes(k + 1) ? ' smaller' : k === 0 && pad ? ' small' : padded.includes(k + 1) ? ' padded' : ''}">${isVid(src) ? `<video muted loop autoplay playsinline data-src="${src}"></video>` : `<img src="${src}" alt="" loading="lazy">`}</span><span>${nn(k)}</span></button>`).join('');
+      `<button aria-label="Image ${k + 1}"><span class="th${smalls.includes(k + 1) ? ' smaller' : k === 0 && pad && !('padOnly' in fig.dataset) ? ' small' : padded.includes(k + 1) ? ' padded' : ''}">${isVid(src) ? `<video muted loop autoplay playsinline data-src="${src}"></video>` : `<img src="${src}" alt="" loading="lazy">`}</span><span>${nn(k)}</span></button>`).join('');
 
     sheet.querySelectorAll('video[data-src]').forEach(playVid);
 
